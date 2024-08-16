@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+
+
+.full-name{
+    display: flex;
+    justify-content: space-between;
+  }
+
+ @media screen and (max-width:1280px) {
+    .full-name{
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+ }
+ 
+ @media screen and (max-width:900px) {
+    #login .login{
+        width: 80%;
+
+
+     }
+}
