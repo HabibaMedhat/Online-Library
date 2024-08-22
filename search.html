@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
+    
+    <title>Search Books</title>
+</head>
+<body>
+    <nav>   <div class="header">
+
+        <img src="./images/e_read.svg" alt="logo_picture" />
+
+
+
+        <div class="links">
+            <div class="toggle">
+                <span></span>
+                <span></span>
+                <span></span>    
+                <div class="arrow"></div>
+            </div>
+            <ul class="">
+                <li><a href="home.htm">Home</a></li>
+                <li><a href="about.htm">About</a></li>
+                <li><a href="authors.htm">Authors</a></li>
+                <li><a href="myLibrary.htm">My Library</a></li>
+                <li><a href="search.html">Search By Category</a></li>
+            </ul>
+        </div>
+
+        
+
+        <div class="info">
+                <img src="images/notification.svg" alt="notifications">
+                <img src="images/userImage.svg" alt="your photo">
+                <div class="text">
+                    <p class="user-name">Hi Olivia!</p>
+                    <p class="handle">@Olivia_95</p>
+                </div>
+        </div>
+ 
+    </div></nav>
+
+    <div class="explore-books">
+        <div class="content">
+            <p>Explore Books</p>
+            <div class="searches">
+                <div class="search-content">
+                    <select id="category-input" onchange="searchByCategory()">
+                        
+                        <option value="choose-category">Categories </option>
+                        <option value="adventure">Adventure</option>
+                        <option value="art">Art</option>
+                        <option value="biography">Biography</option>
+                        <option value="business">Business</option>
+                        <option value="children">Children's Books</option>
+                        <option value="classics">Classics</option>
+                        <option value="cooking">Cooking</option>
+                        <option value="crime">Crime</option>
+                        <option value="drama">Drama</option>
+                        <option value="education">Education</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="graphic_novel">Graphic Novel</option>
+                        <option value="historical_fiction">Historical Fiction</option>
+                        <option value="history">History</option>
+                        <option value="horror">Horror</option>
+                        <option value="humor">Humor</option>
+                        <option value="memoir">Memoir</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="music">Music</option>
+                        <option value="non_fiction">Non-Fiction</option>
+                        <option value="parenting">Parenting</option>
+                        <option value="philosophy">Philosophy</option>
+                        <option value="poetry">Poetry</option>
+                        <option value="politics">Politics</option>
+                        <option value="psychology">Psychology</option>
+                        <option value="romance">Romance</option>
+                        <option value="science">Science</option>
+                        <option value="science_fiction">Science Fiction</option>
+                        <option value="self_help">Self-Help</option>
+                        <option value="short_stories">Short Stories</option>
+                        <option value="spirituality">Spirituality</option>
+                        <option value="sports">Sports</option>
+                        <option value="technology">Technology</option>
+                        <option value="thriller">Thriller</option>
+                        <option value="travel">Travel</option>
+                        <option value="young_adult">Young Adult</option>
+
+                        
+                    </select>
+                    <!-- <div id="category-output">
+                    </div> -->
+                    <!-- <button onclick="searchByCategory()">Categories</button> -->
+                    <div class="input-content">
+                    <input class="input" id="input" placeholder="   Enter book name or author name">
+                <img class="search-lens" src="images/search.png" width="24px" height="24px"/>
+                </div>
+                <button class="book-btn" onclick="getBooksByName()">Book</button>
+                    <button class="author" onclick="getBooksByAuthor()">Author</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content">
+<div class="side-bar">
+    <div class="side-bar-content">
+<p>Browse</p>
+<div class="search-categories">
+<input class="search-input" placeholder="   Search">
+<img  class="search-lens" src="images/search.png" width="24px" height="24px"/>
+</div>
+
+<p class="second-p">Categories</p>
+<div class="categories-list">
+    <ul id="category-list" type="none">
+        <li data-category="adventure" onclick="fetchByCategory('adventure')">Adventure</li>
+        <li data-category="art" onclick="fetchByCategory('art')">Art</li>
+        <li data-category="animals_pets" onclick="fetchByCategory('animals_pets')">Animals & Pets</li>
+        <li data-category="art_photography" onclick="fetchByCategory('art_photography')">Art & Photography</li>
+        <li data-category="autobiography" onclick="fetchByCategory('autobiography')">Autobiography</li>
+        <li data-category="biography" onclick="fetchByCategory('biography')">Biography</li>
+        <li data-category="business" onclick="fetchByCategory('business')">Business</li>
+        <li data-category="children" onclick="fetchByCategory('children')">Children's Books</li>
+        <li data-category="chick_lit" onclick="fetchByCategory('chick_lit')">Chick Lit</li>
+        <li data-category="christian" onclick="fetchByCategory('christian')">Christian Lit</li>
+        <li data-category="classics" onclick="fetchByCategory('classics')">Classics</li>
+        <li data-category="comics" onclick="fetchByCategory('comics')">Comics</li>
+        <li data-category="crime" onclick="fetchByCategory('crime')">Crime & Mystery</li>
+        <li data-category="ebooks" onclick="fetchByCategory('ebooks')">Ebooks</li>
+        <li data-category="fantasy" onclick="fetchByCategory('fantasy')">Fantasy</li>
+        <li data-category="fiction" onclick="fetchByCategory('fiction')">Fiction</li>
+        <li data-category="graphical_novels" onclick="fetchByCategory('graphical_novels')">Graphical Novels</li>
+        <li data-category="historical_fiction" onclick="fetchByCategory('historical_fiction')">Historical Fiction</li>
+        <li data-category="horror" onclick="fetchByCategory('horror')">Horror</li>
+        <li data-category="literature" onclick="fetchByCategory('literature')">Literature</li>
+        <li data-category="mystery" onclick="fetchByCategory('mystery')">Mystery</li>
+        <li data-category="non_fiction" onclick="fetchByCategory('non_fiction')">Non-Fiction</li>
+        <li data-category="philosophy" onclick="fetchByCategory('philosophy')">Philosophy</li>
+        <li data-category="religion" onclick="fetchByCategory('religion')">Religion</li>
+        <li data-category="romance" onclick="fetchByCategory('romance')">Romance</li>
+        <li data-category="science" onclick="fetchByCategory('science')">Science</li>
+        <li data-category="science_fiction" onclick="fetchByCategory('science_fiction')">Science Fiction</li>
+        <li data-category="self_help" onclick="fetchByCategory('self_help')">Self-Help</li>
+        <li data-category="suspense" onclick="fetchByCategory('suspense')">Suspense</li>
+        <li data-category="travel" onclick="fetchByCategory('travel')">Travel</li>
+        <li data-category="young_adult" onclick="fetchByCategory('young_adult')">Young Adult</li>
+    </ul>
+    
+    
+</div>
+</div>
+</div>
+
+
+
+
+<div class="welcome-book">
+    <div class="welcome-book-content">
+<div class="options">
+    <select id="country-select" onchange="searchByCountry()">
+        <option value="choose-country">Country</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Australia">Australia</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Canada">Canada</option>
+        <option value="China">China</option>
+        <option value="France">France</option>
+        <option value="Germany">Germany</option>
+        <option value="India">India</option>
+        <option value="Italy">Italy</option>
+        <option value="Japan">Japan</option>
+        <option value="Mexico">Mexico</option>
+        <option value="Russia">Russia</option>
+        <option value="South Africa">South Africa</option>
+        <option value="Spain">Spain</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="United States">United States</option>
+    </select>
+    
+    <!-- <button onclick="searchByCountry()">Country</button> -->
+    <div class="views">
+    <img id="list-view"  src="images/list.png" width="30px" height="21px" />
+    <img id="grid-view"  src="images/grid view.png" width="22px" height="22px"/>
+</div>
+</div>
+    <div id="welcome-books" class="grid-view">
+    </div>
+<div id="category-output" class="flex-view">
+</div>
+<div id="country-output" class="flex-view">
+</div>
+<div id="output" class="flex-view">
+</div>
+</div>
+</div>
+    </div>
+
+    
+    
+
+
+   
+
+    <!-- <select id="year-select">
+        <option value="">Year</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+        <option value="1990">1990</option>
+        <option value="1999">1999</option>
+        <option value="1900">1900</option>
+        
+    </select>
+    <button onclick="searchByYear()">Year</button>
+    <div id="year-output">
+    </div>
+
+
+
+    <select id="language-select">
+        <option value="">Select a language</option>
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        
+    </select>
+    <button onclick="searchByLanguage()">Language</button>
+    <div id="language-output"></div>
+     -->
+    
+    <div class="footer">
+    </div>
+     
+
+    <script src="js/search-page.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>
