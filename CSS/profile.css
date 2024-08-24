@@ -11,7 +11,7 @@
  
  header{
     position: relative;
-    background-image: url(images/Document.jpeg);
+    background-image: url("/images/Document.jpeg");
     background-position: center  center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,6 +24,7 @@ header .layer{
     bottom: 0;
     top: 0;
     position: absolute;
+ 
 } 
   p{
     color:var(--muted-color);
