@@ -25,6 +25,12 @@ async function displayBooks() {
 
 displayBooks();
 
- 
+
+
+const spinnerLayer = document.querySelector('.spinner-layer');
+setTimeout(() => {
+  spinnerLayer.style.display = 'none';
+}, 5000); 
+
 
  
